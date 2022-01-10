@@ -5,7 +5,7 @@ To try the examples on you machine just clone this repository and run `npm insta
 
 > To use the Designify API you need an API key which you get by subscribing to [Designify Pro](https://www.designify.com/pro). You can find the API key in your [dashboard](https://www.designify.com/dashbaord)
 
-### How to run the [axios example](https://github.com/remove-bg/designify-api-demo)
+### How to run the [axios example](https://github.com/remove-bg/designify-api-demo/tree/main/axios-browser)
 
 1. Clone this repository
 
