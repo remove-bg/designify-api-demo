@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <img id="image" src="http://via.placeholder.com/320x260" />
+    <div id="loading-info">Generating design...</div>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+  ></script>
+  <script type="text/javascript">
+    const apiKey = "fc017f0933b5dfb7ecd68e10c9bdab72"; // Set your Designify API key
+    const designId = "eb8f2c0b-0d0b-49d5-827c-cf6898d5e093"; // Set the design id
+
+    const loadingInfo = document.getElementById("loading-info");
+
+    async function generateDesign() {
+      const imageResponse = await window.axios.get("../images/fox.jpg", {
+        responseType: "blob",
+      });
+
+      const form = new FormData();
+      form.append("image_file", imageResponse.data);
+
+      try {
+        const apiResponse = await window.axios({
+          method: "post",
+          url: `https://api.designify.com/v1.0/designify/${designId}`,
+          data: form,
+          responseType: "blob",
+          headers: {
+            "X-Api-Key": apiKey,
+          },
+        });
+
+        let imageNode = document.getElementById("image");
+        let imgUrl = URL.createObjectURL(apiResponse.data);
+
+        imageNode.src = imgUrl;
+      } catch (error) {
+        if (error.response.status === 403) {
+          alert("Invalid API key");
+        } else {
+          alert("Something went wrong");
+        }
+      } finally {
+        loadingInfo.innerHTML = "";
+      }
+    }
+
+    generateDesign();
+  </script>
+</html>

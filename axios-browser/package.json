@@ -1,0 +1,22 @@
+{
+  "name": "axios-browser",
+  "version": "1.0.0",
+  "description": "Example showing how to use the Designify API with axios in the browser",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -o ./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remove-bg/designify-api-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/remove-bg/designify-api-demo/issues"
+  },
+  "homepage": "https://github.com/remove-bg/designify-api-demo#readme",
+  "devDependencies": {
+    "http-server": "^14.0.0"
+  }
+}

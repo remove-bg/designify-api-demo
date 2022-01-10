@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <img id="image" src="http://via.placeholder.com/320x260" />
+    <div id="loading-info">Generating design...</div>
+  </body>
+  <script type="text/javascript">
+    const apiKey = "INSERT_API_KEY"; // Set your Designify API key
+    const designId = "eb8f2c0b-0d0b-49d5-827c-cf6898d5e093"; // Set the design id
+
+    const loadingInfo = document.getElementById("loading-info");
+
+    async function generateDesign() {
+      const imageResponse = await fetch("../images/fox.jpg");
+      const imageBlob = await imageResponse.blob();
+
+      const form = new FormData();
+      form.append("image_file", imageBlob);
+
+      const apiResponse = await fetch(
+        `https://api.designify.com/v1.0/designify/${designId}`,
+        {
+          method: "POST",
+          body: form,
+          headers: {
+            "X-Api-Key": apiKey,
+          },
+        }
+      );
+
+      loadingInfo.innerHTML = "";
+
+      if (apiResponse.status === 403) {
+        alert("Invalid API key");
+      } else if (!apiResponse.ok) {
+        alert("Something went wrong");
+      } else {
+        const apiResponseBlob = await apiResponse.blob();
+
+        let imageNode = document.getElementById("image");
+        let imgUrl = URL.createObjectURL(apiResponseBlob);
+
+        imageNode.src = imgUrl;
+      }
+    }
+
+    generateDesign();
+  </script>
+</html>
