@@ -12,7 +12,7 @@ This example shows how to use the Designify API to batch process a set of images
 npm install
 ```
 
-2. Get your [API key](https://www.designify.com/dashbaord) and place it inside the `index.js` file
+2. Get your [API key](https://www.designify.com/dashboard) and place it inside the `index.js` file
 3. Run the example through
 
 ```

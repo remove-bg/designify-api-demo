@@ -13,7 +13,7 @@ using `window.fetch` to the Designify API. The response is a generated design wi
 npm install
 ```
 
-2. Get your [API key](https://www.designify.com/dashbaord) and place it inside the `index.html` file
+2. Get your [API key](https://www.designify.com/dashboard) and place it inside the `index.html` file
 3. Run the example through
 
 ```
