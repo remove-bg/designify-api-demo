@@ -3,7 +3,7 @@
 This repo contains code examples of how to use the [Designify API](https://www.designify.com/api-docs).
 To try the examples on you machine just clone this repository and run `npm install` inside the respective folder.
 
-> To use the Designify API you need an API key which you get by subscribing to [Designify Pro](https://www.designify.com/pro). You can find the API key in your [dashboard](https://www.designify.com/dashbaord)
+> To use the Designify API you need an API key which you get by subscribing to [Designify Pro](https://www.designify.com/pro). You can find the API key in your [dashboard](https://www.designify.com/dashboard)
 
 ### How to run a demo
 
@@ -25,7 +25,7 @@ cd designify-api-demo/axios-browser
 npm install
 ```
 
-4. Get your [API key](https://www.designify.com/dashbaord) and place it into the respective source file
+4. Get your [API key](https://www.designify.com/dashboard) and place it into the respective source file
 5. Run the example through
 
 ```
